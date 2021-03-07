@@ -1,11 +1,11 @@
 " Prepare Golang scaffolding file
-function! go#scaffold#init()
+function! goscaffold#init()
   let l:bytes = get(wordcount(), 'bytes', 0)
   if l:bytes != 0
     return
   endif
 
-  let l:pkg_name = go#scaffold#get_package_name()
+  let l:pkg_name = goscaffold#get_package_name()
   if l:pkg_name ==# ''
     return
   endif
@@ -40,7 +40,7 @@ function! go#scaffold#init()
 endfunction
 
 " Get package name for the current file path
-function! go#scaffold#get_package_name()
+function! goscaffold#get_package_name()
   let l:filename = expand('%:p')
   if l:filename ==# ''
     return ''
